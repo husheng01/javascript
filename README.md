@@ -1,7 +1,11 @@
 # javascript
 My first repository on GitHub
 
+````
+```
 在js中实现数组扁平化的6种方案：
+````
+```
  
  在日常开发中，meibe也许后端返回的数据结构不符合我们的预期结构，这个时候就需要我们来处理实现数据结构的扁平化，而且扁平化数组也是面试中的常考考题，开始吧，看看数组扁平化的方案：
   
@@ -12,6 +16,7 @@ My first repository on GitHub
    扁平化的6种方案：
    
    1.使用递归实现 
+   ```
    const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
    //第一种递归实现
    function flattenArray(arr){
@@ -27,12 +32,14 @@ My first repository on GitHub
    }
    
    console.log(flattenArray(ArrayNum))
+   ```
    
    2.reduce迭代实现
    reduce()方法对数组中的每个元素按序执行一个reduce函数，每一次运行reduce会将先前元素的计算结果作为参数传入，最后将其结果汇总单个返回值。
    
    第一次执行回调 函数时，不存在“上一次的计算结果”。如果需要回调函数从数组索引为0的元素开始执行，则需要传递初始值，否则，数组索引为0的元素将被作为初始值initialValue，迭代器将从第二个元素开始执行（索引为1而不是0）
    
+   ```
      const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
      function flattenReduce(arr){
       return arr.reduce((prev,current)=>{
@@ -43,9 +50,10 @@ My first repository on GitHub
      
      }
     console.log(flattenReduce(ArrayNum))
-    
+    ```
     
    3.扩展运算符实现
+   ```
    const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
    function flatten(arr){
     for(let index=0;index<arr.length;index++){
@@ -57,24 +65,31 @@ My first repository on GitHub
     return ArrayNum
    }
    console.log(flatten(ArrayNum))
- 
+  
+  ```
    4.split和toString共同处理
+   ```
   const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
   function flattenByString(arr){
    return arr.toString().split(',').map(item=>Number(item))
   }
   console.log(flattenByString(ArrayNum))
+  ```
   
    5.flat方法
    flat()方法是ES10提供的会按照一个可指定的深度（默认为1）递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回
    参数使用infinity(infinity是一个数值，表示无穷大)，可展开任意深度的嵌套数组
+   ```
    const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
    function flatten(arr){
     return arr.flat(Infinity)
    }
   console.log(flatten(ArrayNum))
+  ```
   
   6.正则和JSON方法共同处理
+  
+   ```
    const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
    function flatten(arr){
     let str =JSON.stringify(arr);
@@ -83,7 +98,7 @@ My first repository on GitHub
     return JSON.parse(str)
    }
    console.log(flatten(ArrayNum))
-   
+  ```
    总结：
    第1-3种方案实质上通过不同的循环遍历的方式，通过对数组的元素判断属性是否是数组，来确定是否要进行递归处理，最后把数组类型的元素展开，最终拼接为一个数组进行返回。
    
