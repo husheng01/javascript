@@ -1,19 +1,21 @@
 # javascript
 My first repository on GitHub
 
-````
+
 ```
 在js中实现数组扁平化的6种方案：
-````
 ```
- 
+ ```
  在日常开发中，meibe也许后端返回的数据结构不符合我们的预期结构，这个时候就需要我们来处理实现数据结构的扁平化，而且扁平化数组也是面试中的常考考题，开始吧，看看数组扁平化的方案：
   
   数组的扁平化其实就是将一个嵌套多层的数组Array转换为只有一层的数组。
-  
+  ```
+  ```
   例如：一个数组位[1[]2,3],[4,[5[6,7]]]],扁平化后会得到[1,2,3,4,5,6,7]这样的数组
-   
+  ```
+  ```
    扁平化的6种方案：
+   ```
    
    1.使用递归实现 
    ```
@@ -50,11 +52,13 @@ My first repository on GitHub
      
      }
     console.log(flattenReduce(ArrayNum))
-    ```
+    
+    
+    
+  
     
    3.扩展运算符实现
-   ```
-   const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
+   ``` const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
    function flatten(arr){
     for(let index=0;index<arr.length;index++){
       const element =arr[index]
@@ -65,8 +69,9 @@ My first repository on GitHub
     return ArrayNum
    }
    console.log(flatten(ArrayNum))
+   ```
+ 
   
-  ```
    4.split和toString共同处理
    ```
   const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
@@ -74,12 +79,12 @@ My first repository on GitHub
    return arr.toString().split(',').map(item=>Number(item))
   }
   console.log(flattenByString(ArrayNum))
-  ```
-  
+
+   ```
    5.flat方法
    flat()方法是ES10提供的会按照一个可指定的深度（默认为1）递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回
    参数使用infinity(infinity是一个数值，表示无穷大)，可展开任意深度的嵌套数组
-   ```
+  
    const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
    function flatten(arr){
     return arr.flat(Infinity)
@@ -89,7 +94,7 @@ My first repository on GitHub
   
   6.正则和JSON方法共同处理
   
-   ```
+ 
    const  ArrayNum=[1,[]2,3,[4,[5,6,7]]]
    function flatten(arr){
     let str =JSON.stringify(arr);
